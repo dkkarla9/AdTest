@@ -3,63 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eonads Ad Implementation</title>
+    <title>WhatsApp Share Counter</title>
     <style>
-        /* CSS for styling the ad container */
-        .ad-container {
-            width: 300px; /* Matches the 300x50 ad size */
-            height: 50px;
-            margin: 20px auto; /* Centers the ad */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
             text-align: center;
-            border: 1px solid #ccc; /* Optional border */
-            background-color: #f9f9f9; /* Light background */
-            overflow: hidden; /* Prevents overflow issues */
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .ad-container a {
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20b354;
+        }
+
+        .discount-hidden {
+            display: none;
+            margin-top: 20px;
+            color: #e91e63;
+        }
+
+        .discount-visible {
             display: block;
-            font-size: 12px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
             color: #666;
-            text-decoration: none;
-            margin-bottom: 5px;
         }
 
-        .ad-container a:hover {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        .e300x50 {
-            display: inline-block;
-            width: 300px;
-            height: 50px;
+        #status-message {
+            margin-top: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <!-- Ad Container -->
-    <div class="ad-container">
-        <!-- Ads by Eonads Link -->
-        <a href="https://www.eonads.com" target="_blank">Ads by Eonads</a>
-        <!-- Ad Placeholder -->
-        <ins class="e300x50" id="300x50" 
-             data-revive-hash="18668c0bb5b830089e740b51241459dc" 
-             data-revive-zoneid="62941" 
-             data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
+    <div class="container">
+        <h1>Share to Unlock 10% Off!</h1>
+        <p>Share this with 15 people on WhatsApp to get your discount code.</p>
+        <p>Shares: <span id="share-count">0</span>/15</p>
+        <button id="share-btn" class="whatsapp-btn">Share on WhatsApp</button>
+        <p id="status-message"></p>
+        <div id="discount-code" class="discount-hidden">
+            <p>Your Discount Code: <strong>SAVE10</strong></p>
+        </div>
     </div>
 
-    <!-- Eonads Ad Server Script -->
-    <script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script>
-
-    <!-- Optional JavaScript to verify ad loading -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("Page loaded. Checking for Eonads script...");
-            const adElement = document.querySelector(".e300x50");
-            if (adElement) {
-                console.log("Ad placeholder found!");
-            } else {
-                console.error("Ad placeholder not found.");
+        document.addEventListener("DOMContentLoaded", () => {
+            const shareBtn = document.getElementById("share-btn");
+            const shareCountDisplay = document.getElementById("share-count");
+            const discountCode = document.getElementById("discount-code");
+            const statusMessage = document.getElementById("status-message");
+
+            // Initialize share count from localStorage or set to 0
+            let shareCount = parseInt(localStorage.getItem("shareCount")) || 0;
+            shareCountDisplay.textContent = shareCount;
+            updateStatus();
+
+            // Check if discount should be shown on page load
+            if (shareCount >= 15) {
+                showDiscount();
+            }
+
+            // Share button click event
+            shareBtn.addEventListener("click", () => {
+                // Open WhatsApp with a predefined message
+                const message = "Check this out! Share with 15 people to get 10% off: " + window.location.href;
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, "_blank");
+
+                // Prompt user for how many people they shared with
+                setTimeout(() => {
+                    let peopleShared = prompt("How many people did you share this with?");
+                    if (peopleShared !== null && !isNaN(peopleShared) && peopleShared > 0) {
+                        shareCount += parseInt(peopleShared);
+                        localStorage.setItem("shareCount", shareCount);
+                        shareCountDisplay.textContent = shareCount;
+                        updateStatus();
+
+                        // Check if discount threshold is reached
+                        if (shareCount >= 15) {
+                            showDiscount();
+                        }
+                    } else {
+                        statusMessage.textContent = "Please enter a valid number!";
+                    }
+                }, 1000); // Delay to allow WhatsApp to open first
+            });
+
+            // Function to update status message
+            function updateStatus() {
+                if (shareCount < 15) {
+                    let remaining = 15 - shareCount;
+                    statusMessage.textContent = `You shared with ${shareCount} people. Share with ${remaining} more!`;
+                } else {
+                    statusMessage.textContent = "Goal reached! Enjoy your discount!";
+                }
+            }
+
+            // Function to reveal discount code
+            function showDiscount() {
+                discountCode.classList.remove("discount-hidden");
+                discountCode.classList.add("discount-visible");
+                shareBtn.disabled = true; // Disable button after discount is unlocked
+                shareBtn.textContent = "Discount Unlocked!";
             }
         });
     </script>
