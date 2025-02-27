@@ -60,6 +60,16 @@
             margin-top: 10px;
             font-weight: bold;
         }
+
+        #confirm-btn {
+            display: none;
+            background-color: #007bff;
+            margin-top: 10px;
+        }
+
+        #confirm-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +78,7 @@
         <p>Share this with 15 people on WhatsApp to get your discount code.</p>
         <p>Shares: <span id="share-count">0</span>/15</p>
         <button id="share-btn" class="whatsapp-btn">Share on WhatsApp</button>
+        <button id="confirm-btn" class="whatsapp-btn">Confirm Share</button>
         <p id="status-message"></p>
         <div id="discount-code" class="discount-hidden">
             <p>Your Discount Code: <strong>SAVE10</strong></p>
@@ -77,6 +88,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const shareBtn = document.getElementById("share-btn");
+            const confirmBtn = document.getElementById("confirm-btn");
             const shareCountDisplay = document.getElementById("share-count");
             const discountCode = document.getElementById("discount-code");
             const statusMessage = document.getElementById("status-message");
@@ -98,23 +110,32 @@
                 const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, "_blank");
 
-                // Prompt user for how many people they shared with
-                setTimeout(() => {
-                    let peopleShared = prompt("How many people did you share this with?");
-                    if (peopleShared !== null && !isNaN(peopleShared) && peopleShared > 0) {
-                        shareCount += parseInt(peopleShared);
-                        localStorage.setItem("shareCount", shareCount);
-                        shareCountDisplay.textContent = shareCount;
-                        updateStatus();
+                // Show confirm button after sharing
+                shareBtn.style.display = "none";
+                confirmBtn.style.display = "inline-block";
+                statusMessage.textContent = "After sharing, enter how many people you sent it to.";
+            });
 
-                        // Check if discount threshold is reached
-                        if (shareCount >= 15) {
-                            showDiscount();
-                        }
-                    } else {
-                        statusMessage.textContent = "Please enter a valid number!";
+            // Confirm button click event
+            confirmBtn.addEventListener("click", () => {
+                let peopleShared = prompt("How many people did you send this to?");
+                if (peopleShared !== null && !isNaN(peopleShared) && peopleShared > 0) {
+                    shareCount += parseInt(peopleShared);
+                    localStorage.setItem("shareCount", shareCount);
+                    shareCountDisplay.textContent = shareCount;
+                    updateStatus();
+
+                    // Reset buttons
+                    shareBtn.style.display = "inline-block";
+                    confirmBtn.style.display = "none";
+
+                    // Check if discount threshold is reached
+                    if (shareCount >= 15) {
+                        showDiscount();
                     }
-                }, 1000); // Delay to allow WhatsApp to open first
+                } else {
+                    statusMessage.textContent = "Please enter a valid number!";
+                }
             });
 
             // Function to update status message
@@ -131,7 +152,8 @@
             function showDiscount() {
                 discountCode.classList.remove("discount-hidden");
                 discountCode.classList.add("discount-visible");
-                shareBtn.disabled = true; // Disable button after discount is unlocked
+                shareBtn.disabled = true;
+                confirmBtn.style.display = "none";
                 shareBtn.textContent = "Discount Unlocked!";
             }
         });
