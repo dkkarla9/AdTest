@@ -18,38 +18,39 @@
       color: #fff;
       text-align: center;
       min-height: 100vh;
-      padding: 20px;
+      padding: 15px;
+      overflow-x: hidden;
     }
 
     header {
-      padding: 20px;
+      padding: 15px;
       background: rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 36px;
+      font-size: 32px;
       line-height: 1.2;
     }
 
     p {
-      font-size: 18px;
-      margin: 10px 0;
+      font-size: 16px;
+      margin: 8px 0;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 15px 30px;
+      padding: 12px 25px;
       background-color: #FFD700;
       color: #000;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       border-radius: 50px;
       transition: transform 0.3s ease, background-color 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      margin: 20px 0;
+      margin: 15px 0;
     }
 
     .cta-button:hover {
@@ -60,16 +61,16 @@
     .button-row {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
     .info-button {
-      padding: 10px 25px;
+      padding: 8px 20px;
       background-color: #fff;
       color: #333;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 14px;
       border-radius: 25px;
       transition: background-color 0.3s ease;
     }
@@ -79,24 +80,26 @@
     }
 
     .rewards-section {
-      margin: 40px 0;
+      margin: 30px 0;
     }
 
     .reward-items {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 15px;
+      flex-wrap: nowrap;
+      overflow-x: auto; /* Adds horizontal scroll on small screens if needed */
     }
 
     .reward {
       background: #fff;
-      padding: 20px;
-      border-radius: 15px;
+      padding: 15px;
+      border-radius: 12px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      width: 200px;
-      height: 250px;
+      width: 180px;
+      height: 220px;
       transition: transform 0.3s ease;
+      flex-shrink: 0; /* Prevents shrinking */
     }
 
     .reward:hover {
@@ -104,17 +107,17 @@
     }
 
     .reward img {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 8px;
     }
 
     .reward p {
       margin-top: 10px;
       font-weight: bold;
       color: #333;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     @keyframes fadeInUp {
@@ -126,31 +129,109 @@
       animation: fadeInUp 1s ease forwards;
     }
 
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #fff, #f9f9f9);
+      padding: 20px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 450px;
+      position: relative;
+      color: #333;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #FF416C;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .close-modal:hover {
+      color: #FFAA00;
+    }
+
+    .modal-content h2 {
+      color: #FF416C;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .testimonial {
+      margin: 15px 0;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+
+    .testimonial p {
+      font-size: 14px;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .testimonial strong {
+      color: #FF416C;
+      font-size: 16px;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
-      h1 { font-size: 28px; }
-      p { font-size: 16px; }
-      .cta-button { padding: 12px 25px; font-size: 16px; }
-      .info-button { padding: 8px 20px; font-size: 14px; }
-      .reward { width: 180px; height: 230px; }
-      .reward img { width: 120px; height: 120px; }
+      h1 { font-size: 26px; }
+      p { font-size: 14px; }
+      .cta-button { padding: 10px 20px; font-size: 14px; }
+      .info-button { padding: 6px 15px; font-size: 12px; }
+      .reward { width: 150px; height: 190px; }
+      .reward img { width: 100px; height: 100px; }
+      body { padding: 10px; }
+      .rewards-section { margin: 20px 0; }
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 24px; }
-      p { font-size: 14px; }
-      .cta-button { padding: 10px 20px; font-size: 14px; }
-      .button-row { flex-direction: column; gap: 10px; }
-      .info-button { padding: 8px 15px; font-size: 14px; }
-      .reward { width: 160px; height: 200px; }
-      .reward img { width: 100px; height: 100px; }
-    }
-
-    /* Modal-friendly adjustments */
-    @media (max-width: 600px) {
-      body { padding: 10px; }
-      header { margin-bottom: 20px; padding: 15px; }
-      .rewards-section { margin: 20px 0; }
+      h1 { font-size: 22px; }
+      p { font-size: 12px; }
+      .cta-button { padding: 8px 15px; font-size: 12px; }
+      .button-row { flex-direction: column; gap: 8px; }
+      .info-button { padding: 6px 12px; font-size: 12px; }
+      .reward { width: 120px; height: 160px; }
+      .reward img { width: 80px; height: 80px; }
+      body { padding: 5px; }
+      .reward-items { gap: 10px; padding-bottom: 10px; }
+      .modal-content { max-width: 90%; padding: 15px; }
+      .modal-content h2 { font-size: 20px; }
+      .testimonial img { width: 60px; height: 60px; }
+      .testimonial p { font-size: 12px; }
+      .testimonial strong { font-size: 14px; }
     }
   </style>
 </head>
@@ -184,5 +265,44 @@
       </div>
     </div>
   </main>
+
+  <!-- Modal -->
+  <div id="winner-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">×</span>
+      <h2>Last Contest Winners</h2>
+      <div class="testimonial">
+        <img src="https://imgs.search.brave.com/tYisp-U1I03gDFZu5U5QpR6g9CxNY_A_wmHiP5iQaGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWF0Y2hhcmVzaWRl/bnQuY29tL2Fzc2V0/cy9uZXdfbWFpbi9p/bWcwMS04MTg5NDkz/MTkyNDg4ZWZjMzk3/NzBhN2Y2N2ExYTFh/MmMyZWM0YjYzZDBk/YWY3ZmNlZDBmOTkx/OTgyMmU2NGIwLnBu/Zw" alt="Sarah J.">
+        <p>"I won a smartphone and couldn't believe my luck!"</p>
+        <p><strong>- Sarah J.</strong></p>
+      </div>
+      <div class="testimonial">
+        <img src="https://imgs.search.brave.com/tYisp-U1I03gDFZu5U5QpR6g9CxNY_A_wmHiP5iQaGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWF0Y2hhcmVzaWRl/bnQuY29tL2Fzc2V0/cy9uZXdfbWFpbi9p/bWcwMS04MTg5NDkz/MTkyNDg4ZWZjMzk3/NzBhN2Y2N2ExYTFh/MmMyZWM0YjYzZDBk/YWY3ZmNlZDBmOTkx/OTgyMmU2NGIwLnBu/Zw" alt="Mike T.">
+        <p>"The headphones are amazing, thank you!"</p>
+        <p><strong>- Mike T.</strong></p>
+      </div>
+      <div class="testimonial">
+        <img src="https://imgs.search.brave.com/tYisp-U1I03gDFZu5U5QpR6g9CxNY_A_wmHiP5iQaGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWF0Y2hhcmVzaWRl/bnQuY29tL2Fzc2V0/cy9uZXdfbWFpbi9p/bWcwMS04MTg5NDkz/MTkyNDg4ZWZjMzk3/NzBhN2Y2N2ExYTFh/MmMyZWM0YjYzZDBk/YWY3ZmNlZDBmOTkx/OTgyMmU2NGIwLnBu/Zw" alt="Emily R.">
+        <p>"Best contest ever, I’m so happy!"</p>
+        <p><strong>- Emily R.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('winner-modal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Show modal after 2 seconds
+    setTimeout(() => {
+      modal.style.display = 'flex';
+    }, 2000);
+
+    // Close modal on click
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
