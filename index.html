@@ -1,162 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Share Counter</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contest Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FF416C, #FFAA00);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    header {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
 
-        .whatsapp-btn:hover {
-            background-color: #20b354;
-        }
+    h1 {
+      font-size: 36px;
+      line-height: 1.2;
+    }
 
-        .discount-hidden {
-            display: none;
-            margin-top: 20px;
-            color: #e91e63;
-        }
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
 
-        .discount-visible {
-            display: block;
-        }
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #FFD700;
+      color: #000;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin: 20px 0;
+    }
 
-        h1 {
-            color: #333;
-        }
+    .cta-button:hover {
+      background-color: #FF4500;
+      transform: scale(1.05);
+    }
 
-        p {
-            color: #666;
-        }
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-        #status-message {
-            margin-top: 10px;
-            font-weight: bold;
-        }
+    .info-button {
+      padding: 10px 25px;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+    }
 
-        #confirm-btn {
-            display: none;
-            background-color: #007bff;
-            margin-top: 10px;
-        }
+    .info-button:hover {
+      background-color: #FFD700;
+    }
 
-        #confirm-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .rewards-section {
+      margin: 40px 0;
+    }
+
+    .reward-items {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reward {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      width: 200px;
+      height: 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .reward:hover {
+      transform: translateY(-10px);
+    }
+
+    .reward img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .reward p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+      font-size: 16px;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .reward {
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+      p { font-size: 16px; }
+      .cta-button { padding: 12px 25px; font-size: 16px; }
+      .info-button { padding: 8px 20px; font-size: 14px; }
+      .reward { width: 180px; height: 230px; }
+      .reward img { width: 120px; height: 120px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 24px; }
+      p { font-size: 14px; }
+      .cta-button { padding: 10px 20px; font-size: 14px; }
+      .button-row { flex-direction: column; gap: 10px; }
+      .info-button { padding: 8px 15px; font-size: 14px; }
+      .reward { width: 160px; height: 200px; }
+      .reward img { width: 100px; height: 100px; }
+    }
+
+    /* Modal-friendly adjustments */
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      header { margin-bottom: 20px; padding: 15px; }
+      .rewards-section { margin: 20px 0; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Share to Unlock 10% Off!</h1>
-        <p>Share this with 15 people on WhatsApp to get your discount code.</p>
-        <p>Shares: <span id="share-count">0</span>/15</p>
-        <button id="share-btn" class="whatsapp-btn">Share on WhatsApp</button>
-        <button id="confirm-btn" class="whatsapp-btn">Confirm Share</button>
-        <p id="status-message"></p>
-        <div id="discount-code" class="discount-hidden">
-            <p>Your Discount Code: <strong>SAVE10</strong></p>
-        </div>
+  <header>
+    <h1>Welcome to the Ultimate Prize Contest!</h1>
+  </header>
+
+  <main>
+    <p>Ready to win amazing rewards like mobile phones, gadgets, and more? Join now and test your luck in our exciting contest!</p>
+    <p><strong>Sign up today—your dream prize is just a click away!</strong></p>
+
+    <a href="page.html" class="cta-button">Join the Contest Now!</a>
+    
+    <div class="button-row">
+      <a href="#how-it-works" class="info-button">How It Works</a>
+      <a href="#last-winner" class="info-button">Last Winner</a>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const shareBtn = document.getElementById("share-btn");
-            const confirmBtn = document.getElementById("confirm-btn");
-            const shareCountDisplay = document.getElementById("share-count");
-            const discountCode = document.getElementById("discount-code");
-            const statusMessage = document.getElementById("status-message");
-
-            // Initialize share count from localStorage or set to 0
-            let shareCount = parseInt(localStorage.getItem("shareCount")) || 0;
-            shareCountDisplay.textContent = shareCount;
-            updateStatus();
-
-            // Check if discount should be shown on page load
-            if (shareCount >= 15) {
-                showDiscount();
-            }
-
-            // Share button click event
-            shareBtn.addEventListener("click", () => {
-                // Open WhatsApp with a predefined message
-                const message = "Check this out! Share with 15 people to get 10% off: " + window.location.href;
-                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, "_blank");
-
-                // Show confirm button after sharing
-                shareBtn.style.display = "none";
-                confirmBtn.style.display = "inline-block";
-                statusMessage.textContent = "After sharing, enter how many people you sent it to.";
-            });
-
-            // Confirm button click event
-            confirmBtn.addEventListener("click", () => {
-                let peopleShared = prompt("How many people did you send this to?");
-                if (peopleShared !== null && !isNaN(peopleShared) && peopleShared > 0) {
-                    shareCount += parseInt(peopleShared);
-                    localStorage.setItem("shareCount", shareCount);
-                    shareCountDisplay.textContent = shareCount;
-                    updateStatus();
-
-                    // Reset buttons
-                    shareBtn.style.display = "inline-block";
-                    confirmBtn.style.display = "none";
-
-                    // Check if discount threshold is reached
-                    if (shareCount >= 15) {
-                        showDiscount();
-                    }
-                } else {
-                    statusMessage.textContent = "Please enter a valid number!";
-                }
-            });
-
-            // Function to update status message
-            function updateStatus() {
-                if (shareCount < 15) {
-                    let remaining = 15 - shareCount;
-                    statusMessage.textContent = `You shared with ${shareCount} people. Share with ${remaining} more!`;
-                } else {
-                    statusMessage.textContent = "Goal reached! Enjoy your discount!";
-                }
-            }
-
-            // Function to reveal discount code
-            function showDiscount() {
-                discountCode.classList.remove("discount-hidden");
-                discountCode.classList.add("discount-visible");
-                shareBtn.disabled = true;
-                confirmBtn.style.display = "none";
-                shareBtn.textContent = "Discount Unlocked!";
-            }
-        });
-    </script>
+    <div class="rewards-section">
+      <h2>Amazing Rewards Await!</h2>
+      <div class="reward-items">
+        <div class="reward">
+          <img src="https://imgs.search.brave.com/D0gnyTp67Z4wJ4QFVHIJVBfmYBWpICPlravJiuxORS4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/OTEtaW1nLmNvbS9n/YWxsZXJ5X2ltYWdl/c191cGxvYWRzLzAv/MS8wMTFmMmNmNjk0/NmQ5YjEzZDA4NzA2/YzZhMmRiNjU4YWY2/M2E2NjMyLmpwZz90/cj1oLTU1MCx3LTAs/Yy1hdF9tYXg" alt="Mobile Phone">
+          <p>Latest Smartphone</p>
+        </div>
+        <div class="reward">
+          <img src="https://imgs.search.brave.com/REeQgX7G2VbuEbskbRQX0lM5i3NPFVQAMkGO3VAZTjg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/MjM4Mjg2L3Bob3Rv/L3JlZC13aXJlbGVz/cy1oZWFkcGhvbmVz/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1mY3lTakhoXzBt/OFR5ZFM1eEVsSzR6/VWRycGFEdXZ6NGx1/Sm9ZNlNaT1RjPQ" alt="Headphones">
+          <p>Premium Headphones</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
