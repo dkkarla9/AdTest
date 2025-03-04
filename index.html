@@ -21,7 +21,6 @@
       padding: 20px;
     }
 
-    /* Header */
     header {
       padding: 20px;
       background: rgba(0, 0, 0, 0.2);
@@ -39,7 +38,6 @@
       margin: 10px 0;
     }
 
-    /* Call-to-Action Button */
     .cta-button {
       display: inline-block;
       padding: 15px 30px;
@@ -51,6 +49,7 @@
       border-radius: 50px;
       transition: transform 0.3s ease, background-color 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin: 20px 0;
     }
 
     .cta-button:hover {
@@ -58,16 +57,36 @@
       transform: scale(1.05);
     }
 
-    /* Rewards Section */
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .info-button {
+      padding: 10px 25px;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+    }
+
+    .info-button:hover {
+      background-color: #FFD700;
+    }
+
     .rewards-section {
       margin: 40px 0;
     }
 
     .reward-items {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .reward {
@@ -75,7 +94,8 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      width: 180px;
+      width: 200px;
+      height: 250px;
       transition: transform 0.3s ease;
     }
 
@@ -84,9 +104,9 @@
     }
 
     .reward img {
-      width: 100%;
-      max-width: 140px;
-      height: auto;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
       border-radius: 10px;
     }
 
@@ -97,16 +117,9 @@
       font-size: 16px;
     }
 
-    /* Animation for Rewards */
     @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .reward {
@@ -115,51 +128,29 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 28px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .cta-button {
-        padding: 12px 25px;
-        font-size: 16px;
-      }
-
-      .reward {
-        width: 140px;
-      }
-
-      .reward img {
-        max-width: 100px;
-      }
+      h1 { font-size: 28px; }
+      p { font-size: 16px; }
+      .cta-button { padding: 12px 25px; font-size: 16px; }
+      .info-button { padding: 8px 20px; font-size: 14px; }
+      .reward { width: 180px; height: 230px; }
+      .reward img { width: 120px; height: 120px; }
     }
 
     @media (max-width: 480px) {
-      h1 {
-        font-size: 24px;
-      }
+      h1 { font-size: 24px; }
+      p { font-size: 14px; }
+      .cta-button { padding: 10px 20px; font-size: 14px; }
+      .button-row { flex-direction: column; gap: 10px; }
+      .info-button { padding: 8px 15px; font-size: 14px; }
+      .reward { width: 160px; height: 200px; }
+      .reward img { width: 100px; height: 100px; }
+    }
 
-      p {
-        font-size: 14px;
-      }
-
-      .cta-button {
-        padding: 10px 20px;
-        font-size: 14px;
-      }
-
-      .reward-items {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .reward {
-        width: 80%;
-        max-width: 200px;
-      }
+    /* Modal-friendly adjustments */
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      header { margin-bottom: 20px; padding: 15px; }
+      .rewards-section { margin: 20px 0; }
     }
   </style>
 </head>
@@ -173,6 +164,11 @@
     <p><strong>Sign up today—your dream prize is just a click away!</strong></p>
 
     <a href="page.html" class="cta-button">Join the Contest Now!</a>
+    
+    <div class="button-row">
+      <a href="#how-it-works" class="info-button">How It Works</a>
+      <a href="#last-winner" class="info-button">Last Winner</a>
+    </div>
 
     <div class="rewards-section">
       <h2>Amazing Rewards Await!</h2>
@@ -184,10 +180,6 @@
         <div class="reward">
           <img src="https://imgs.search.brave.com/REeQgX7G2VbuEbskbRQX0lM5i3NPFVQAMkGO3VAZTjg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/MjM4Mjg2L3Bob3Rv/L3JlZC13aXJlbGVz/cy1oZWFkcGhvbmVz/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1mY3lTakhoXzBt/OFR5ZFM1eEVsSzR6/VWRycGFEdXZ6NGx1/Sm9ZNlNaT1RjPQ" alt="Headphones">
           <p>Premium Headphones</p>
-        </div>
-        <div class="reward">
-          <img src="https://imgs.search.brave.com/NQyqtM3pN-tvhJzFZ0zcphZsI8KZ9Od_S0x1TwBLzWw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmVyZHdhbGxldC5j/b20vY2RuLWNnaS9p/bWFnZS93aWR0aD0x/ODAwLHF1YWxpdHk9/ODUvY2RuL2ltYWdl/cy9tYXJrZXRwbGFj/ZS9jcmVkaXRfY2Fy/ZHMvY2Y1MTRkZWMt/ZDczOS00OGJiLWJl/ODItODg4MjNhMTdi/NjJjL2E4MjU2NjZm/NTE4OWJlYmY1MTIy/NGZmYzVkMDhhYWM2/MWFhZTk0MDgyMjRi/MDUzZDI1ZWY4NmI2/YWJlNTQwYWQuanBn" alt="Gift Card">
-          <p>$100 Gift Card</p>
         </div>
       </div>
     </div>
