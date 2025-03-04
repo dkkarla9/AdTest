@@ -18,39 +18,39 @@
       color: #fff;
       text-align: center;
       min-height: 100vh;
-      padding: 15px;
-      overflow-x: hidden;
+      padding: 20px;
     }
 
+    /* Header */
     header {
-      padding: 15px;
+      padding: 20px;
       background: rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 36px;
       line-height: 1.2;
     }
 
     p {
-      font-size: 16px;
-      margin: 8px 0;
+      font-size: 18px;
+      margin: 10px 0;
     }
 
+    /* Call-to-Action Button */
     .cta-button {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 15px 30px;
       background-color: #FFD700;
       color: #000;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       border-radius: 50px;
       transition: transform 0.3s ease, background-color 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      margin: 15px 0;
     }
 
     .cta-button:hover {
@@ -58,48 +58,25 @@
       transform: scale(1.05);
     }
 
-    .button-row {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .info-button {
-      padding: 8px 20px;
-      background-color: #fff;
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-      border-radius: 25px;
-      transition: background-color 0.3s ease;
-    }
-
-    .info-button:hover {
-      background-color: #FFD700;
-    }
-
+    /* Rewards Section */
     .rewards-section {
-      margin: 30px 0;
+      margin: 40px 0;
     }
 
     .reward-items {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      flex-wrap: nowrap;
-      overflow-x: auto; /* Adds horizontal scroll on small screens if needed */
+      gap: 20px;
     }
 
     .reward {
       background: #fff;
-      padding: 15px;
-      border-radius: 12px;
+      padding: 20px;
+      border-radius: 15px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
       width: 180px;
-      height: 220px;
       transition: transform 0.3s ease;
-      flex-shrink: 0; /* Prevents shrinking */
     }
 
     .reward:hover {
@@ -107,131 +84,82 @@
     }
 
     .reward img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
+      width: 100%;
+      max-width: 140px;
+      height: auto;
+      border-radius: 10px;
     }
 
     .reward p {
       margin-top: 10px;
       font-weight: bold;
       color: #333;
-      font-size: 14px;
+      font-size: 16px;
     }
 
+    /* Animation for Rewards */
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .reward {
       animation: fadeInUp 1s ease forwards;
     }
 
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-    }
-
-    .modal-content {
-      background: linear-gradient(135deg, #fff, #f9f9f9);
-      padding: 20px;
-      border-radius: 15px;
-      width: 100%;
-      max-width: 450px;
-      position: relative;
-      color: #333;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      overflow-y: auto;
-      max-height: 80vh;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
-      cursor: pointer;
-      color: #FF416C;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .close-modal:hover {
-      color: #FFAA00;
-    }
-
-    .modal-content h2 {
-      color: #FF416C;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    .testimonial {
-      margin: 15px 0;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .testimonial img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      object-fit: cover;
-    }
-
-    .testimonial p {
-      font-size: 14px;
-      color: #555;
-      margin: 5px 0;
-    }
-
-    .testimonial strong {
-      color: #FF416C;
-      font-size: 16px;
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
-      h1 { font-size: 26px; }
-      p { font-size: 14px; }
-      .cta-button { padding: 10px 20px; font-size: 14px; }
-      .info-button { padding: 6px 15px; font-size: 12px; }
-      .reward { width: 150px; height: 190px; }
-      .reward img { width: 100px; height: 100px; }
-      body { padding: 10px; }
-      .rewards-section { margin: 20px 0; }
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .cta-button {
+        padding: 12px 25px;
+        font-size: 16px;
+      }
+
+      .reward {
+        width: 140px;
+      }
+
+      .reward img {
+        max-width: 100px;
+      }
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 22px; }
-      p { font-size: 12px; }
-      .cta-button { padding: 8px 15px; font-size: 12px; }
-      .button-row { flex-direction: column; gap: 8px; }
-      .info-button { padding: 6px 12px; font-size: 12px; }
-      .reward { width: 120px; height: 160px; }
-      .reward img { width: 80px; height: 80px; }
-      body { padding: 5px; }
-      .reward-items { gap: 10px; padding-bottom: 10px; }
-      .modal-content { max-width: 90%; padding: 15px; }
-      .modal-content h2 { font-size: 20px; }
-      .testimonial img { width: 60px; height: 60px; }
-      .testimonial p { font-size: 12px; }
-      .testimonial strong { font-size: 14px; }
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      .reward-items {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .reward {
+        width: 80%;
+        max-width: 200px;
+      }
     }
   </style>
 </head>
@@ -245,11 +173,6 @@
     <p><strong>Sign up today—your dream prize is just a click away!</strong></p>
 
     <a href="page.html" class="cta-button">Join the Contest Now!</a>
-    
-    <div class="button-row">
-      <a href="#how-it-works" class="info-button">How It Works</a>
-      <a href="#last-winner" class="info-button">Last Winner</a>
-    </div>
 
     <div class="rewards-section">
       <h2>Amazing Rewards Await!</h2>
@@ -262,47 +185,12 @@
           <img src="https://imgs.search.brave.com/REeQgX7G2VbuEbskbRQX0lM5i3NPFVQAMkGO3VAZTjg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/MjM4Mjg2L3Bob3Rv/L3JlZC13aXJlbGVz/cy1oZWFkcGhvbmVz/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1mY3lTakhoXzBt/OFR5ZFM1eEVsSzR6/VWRycGFEdXZ6NGx1/Sm9ZNlNaT1RjPQ" alt="Headphones">
           <p>Premium Headphones</p>
         </div>
+        <div class="reward">
+          <img src="https://imgs.search.brave.com/NQyqtM3pN-tvhJzFZ0zcphZsI8KZ9Od_S0x1TwBLzWw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmVyZHdhbGxldC5j/b20vY2RuLWNnaS9p/bWFnZS93aWR0aD0x/ODAwLHF1YWxpdHk9/ODUvY2RuL2ltYWdl/cy9tYXJrZXRwbGFj/ZS9jcmVkaXRfY2Fy/ZHMvY2Y1MTRkZWMt/ZDczOS00OGJiLWJl/ODItODg4MjNhMTdi/NjJjL2E4MjU2NjZm/NTE4OWJlYmY1MTIy/NGZmYzVkMDhhYWM2/MWFhZTk0MDgyMjRi/MDUzZDI1ZWY4NmI2/YWJlNTQwYWQuanBn" alt="Gift Card">
+          <p>$100 Gift Card</p>
+        </div>
       </div>
     </div>
   </main>
-
-  <!-- Modal -->
-  <div id="winner-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">×</span>
-      <h2>Last Contest Winners</h2>
-      <div class="testimonial">
-        <img src="https://imgs.search.brave.com/tYisp-U1I03gDFZu5U5QpR6g9CxNY_A_wmHiP5iQaGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWF0Y2hhcmVzaWRl/bnQuY29tL2Fzc2V0/cy9uZXdfbWFpbi9p/bWcwMS04MTg5NDkz/MTkyNDg4ZWZjMzk3/NzBhN2Y2N2ExYTFh/MmMyZWM0YjYzZDBk/YWY3ZmNlZDBmOTkx/OTgyMmU2NGIwLnBu/Zw" alt="Sarah J.">
-        <p>"I won a smartphone and couldn't believe my luck!"</p>
-        <p><strong>- Sarah J.</strong></p>
-      </div>
-      <div class="testimonial">
-        <img src="https://imgs.search.brave.com/tYisp-U1I03gDFZu5U5QpR6g9CxNY_A_wmHiP5iQaGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWF0Y2hhcmVzaWRl/bnQuY29tL2Fzc2V0/cy9uZXdfbWFpbi9p/bWcwMS04MTg5NDkz/MTkyNDg4ZWZjMzk3/NzBhN2Y2N2ExYTFh/MmMyZWM0YjYzZDBk/YWY3ZmNlZDBmOTkx/OTgyMmU2NGIwLnBu/Zw" alt="Mike T.">
-        <p>"The headphones are amazing, thank you!"</p>
-        <p><strong>- Mike T.</strong></p>
-      </div>
-      <div class="testimonial">
-        <img src="https://imgs.search.brave.com/tYisp-U1I03gDFZu5U5QpR6g9CxNY_A_wmHiP5iQaGg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWF0Y2hhcmVzaWRl/bnQuY29tL2Fzc2V0/cy9uZXdfbWFpbi9p/bWcwMS04MTg5NDkz/MTkyNDg4ZWZjMzk3/NzBhN2Y2N2ExYTFh/MmMyZWM0YjYzZDBk/YWY3ZmNlZDBmOTkx/OTgyMmU2NGIwLnBu/Zw" alt="Emily R.">
-        <p>"Best contest ever, I’m so happy!"</p>
-        <p><strong>- Emily R.</strong></p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Modal functionality
-    const modal = document.getElementById('winner-modal');
-    const closeModal = document.querySelector('.close-modal');
-    
-    // Show modal after 2 seconds
-    setTimeout(() => {
-      modal.style.display = 'flex';
-    }, 2000);
-
-    // Close modal on click
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-  </script>
 </body>
 </html>
