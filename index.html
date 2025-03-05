@@ -1,188 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contest Homepage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Prize Contest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #FF416C, #FFAA00);
-      color: #fff;
-      text-align: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+        body {
+            background: linear-gradient(to right, #FF8C00, #FF69B4);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
 
-    header {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            width: 100%;
+        }
 
-    h1 {
-      font-size: 36px;
-      line-height: 1.2;
-    }
+        .header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-    p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
+        .header h1 span {
+            color: #FFD700;
+        }
 
-    .cta-button {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #FFD700;
-      color: #000;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 50px;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      margin: 20px 0;
-    }
+        .header p {
+            font-size: 18px;
+            margin: 20px 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.5;
+        }
 
-    .cta-button:hover {
-      background-color: #FF4500;
-      transform: scale(1.05);
-    }
+        .header p span {
+            color: #FFD700;
+            text-decoration: underline;
+            cursor: pointer;
+        }
 
-    .button-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        .cta-button {
+            background-color: #FFD700;
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 20px 0;
+        }
 
-    .info-button {
-      padding: 10px 25px;
-      background-color: #fff;
-      color: #333;
-      text-decoration: none;
-      font-size: 16px;
-      border-radius: 25px;
-      transition: background-color 0.3s ease;
-    }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
 
-    .info-button:hover {
-      background-color: #FFD700;
-    }
+        .secondary-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .rewards-section {
-      margin: 40px 0;
-    }
+        .secondary-button {
+            background-color: transparent;
+            color: #FFFFFF;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: 2px solid #FF8C00;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    .reward-items {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        .secondary-button:hover {
+            background-color: rgba(255, 165, 0, 0.2);
+        }
 
-    .reward {
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      width: 200px;
-      height: 250px;
-      transition: transform 0.3s ease;
-    }
+        /* Prizes Section */
+        .prizes {
+            text-align: center;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
 
-    .reward:hover {
-      transform: translateY(-10px);
-    }
+        .prizes h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
 
-    .reward img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+        .prizes h2 span {
+            color: #FFD700;
+        }
 
-    .reward p {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #333;
-      font-size: 16px;
-    }
+        .prize-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+        .prize-card {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
 
-    .reward {
-      animation: fadeInUp 1s ease forwards;
-    }
+        .prize-card:hover {
+            transform: scale(1.05);
+        }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      h1 { font-size: 28px; }
-      p { font-size: 16px; }
-      .cta-button { padding: 12px 25px; font-size: 16px; }
-      .info-button { padding: 8px 20px; font-size: 14px; }
-      .reward { width: 180px; height: 230px; }
-      .reward img { width: 120px; height: 120px; }
-    }
+        .prize-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
 
-    @media (max-width: 480px) {
-      h1 { font-size: 24px; }
-      p { font-size: 14px; }
-      .cta-button { padding: 10px 20px; font-size: 14px; }
-      .button-row { flex-direction: column; gap: 10px; }
-      .info-button { padding: 8px 15px; font-size: 14px; }
-      .reward { width: 160px; height: 200px; }
-      .reward img { width: 100px; height: 100px; }
-    }
+        .prize-card h3 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
 
-    /* Modal-friendly adjustments */
-    @media (max-width: 600px) {
-      body { padding: 10px; }
-      header { margin-bottom: 20px; padding: 15px; }
-      .rewards-section { margin: 20px 0; }
-    }
-  </style>
+        .prize-card button {
+            background-color: #FFD700;
+            color: #000000;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .prize-card button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(255, 140, 0, 0.8);
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .prizes h2 {
+                font-size: 24px;
+            }
+
+            .prize-card {
+                width: 90%;
+            }
+
+            .cta-button {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+
+            .secondary-button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to the Ultimate Prize Contest!</h1>
-  </header>
-
-  <main>
-    <p>Ready to win amazing rewards like mobile phones, gadgets, and more? Join now and test your luck in our exciting contest!</p>
-    <p><strong>Sign up today—your dream prize is just a click away!</strong></p>
-
-    <a href="page.html" class="cta-button">Join the Contest Now!</a>
-    
-    <div class="button-row">
-      <a href="#how-it-works" class="info-button">How It Works</a>
-      <a href="#last-winner" class="info-button">Last Winner</a>
+    <div class="header">
+        <h1>Welcome to the <span>Ultimate Prize Contest!</span></h1>
+        <p>Win incredible prizes like smartphones, headphones, and more! <br> <span>Join now</span> and test your luck!</p>
+        <button class="cta-button">Join the Contest Now!</button>
+        <div class="secondary-buttons">
+            <button class="secondary-button">How It Works</button>
+            <button class="secondary-button">Last Winner</button>
+        </div>
     </div>
 
-    <div class="rewards-section">
-      <h2>Amazing Rewards Await!</h2>
-      <div class="reward-items">
-        <div class="reward">
-          <img src="https://imgs.search.brave.com/D0gnyTp67Z4wJ4QFVHIJVBfmYBWpICPlravJiuxORS4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/OTEtaW1nLmNvbS9n/YWxsZXJ5X2ltYWdl/c191cGxvYWRzLzAv/MS8wMTFmMmNmNjk0/NmQ5YjEzZDA4NzA2/YzZhMmRiNjU4YWY2/M2E2NjMyLmpwZz90/cj1oLTU1MCx3LTAs/Yy1hdF9tYXg" alt="Mobile Phone">
-          <p>Latest Smartphone</p>
+    <div class="prizes">
+        <h2>Amazing <span>Rewards</span> Await!</h2>
+        <div class="prize-container">
+            <div class="prize-card">
+                <!-- Placeholder for smartphone image -->
+                <img src="https://imgs.search.brave.com/m3fWiZteBILapZgx3G2QixraPWHZ7vvqVYxsT4LkwHI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zczcu/dnp3LmNvbS9pcy9p/bWFnZS9WZXJpem9u/V2lyZWxlc3MvYXBw/bGUtaXBob25lLTE2/ZS13aGl0ZS1hbHVt/aW51bT9oZWk9MjUw/JmJnYz1mNmY2ZjY.jpeg" alt="Latest Smartphone">
+                <h3>Latest Smartphone</h3>
+                <button>Win Now!</button>
+            </div>
+            <div class="prize-card">
+                <!-- Placeholder for headphones image -->
+                <img src="https://imgs.search.brave.com/m3fWiZteBILapZgx3G2QixraPWHZ7vvqVYxsT4LkwHI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zczcu/dnp3LmNvbS9pcy9p/bWFnZS9WZXJpem9u/V2lyZWxlc3MvYXBw/bGUtaXBob25lLTE2/ZS13aGl0ZS1hbHVt/aW51bT9oZWk9MjUw/JmJnYz1mNmY2ZjY.jpeg" alt="Premium Headphones">
+                <h3>Premium Headphones</h3>
+                <button>Win Now!</button>
+            </div>
         </div>
-        <div class="reward">
-          <img src="https://imgs.search.brave.com/REeQgX7G2VbuEbskbRQX0lM5i3NPFVQAMkGO3VAZTjg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/MjM4Mjg2L3Bob3Rv/L3JlZC13aXJlbGVz/cy1oZWFkcGhvbmVz/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1mY3lTakhoXzBt/OFR5ZFM1eEVsSzR6/VWRycGFEdXZ6NGx1/Sm9ZNlNaT1RjPQ" alt="Headphones">
-          <p>Premium Headphones</p>
-        </div>
-      </div>
     </div>
-  </main>
+
+    <div class="footer">
+        <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+    </div>
+
+    <!-- Optional: Add confetti animation here using a library like Particles.js -->
+    <!-- Optional: Add a progress bar here using JavaScript -->
 </body>
-</html>
+</html>         
