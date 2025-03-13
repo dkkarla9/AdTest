@@ -3,69 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Share Button</title>
+    <title>Dream11</title>
     <style>
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #8B0000;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-icon {
+            color: rgb(241, 52, 52);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 25px;
+        }
+
+        .language-selector {
+            background-color: #660000;
+            color: #fff;
+            border-radius: 20px;
+            padding: 5px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .language-selector select {
+            background: transparent;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            appearance: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 60px;
+            min-height: 100vh;
+            background-color: #000;
+            background: url('/backgound.png') no-repeat center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Background overlay */
+        .hero-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        /* Place content above overlay */
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Sponsor Section */
+        .sponsor-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .sponsor-section p {
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .sponsor-logos {
             display: flex;
             justify-content: center;
+            gap: 20px;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
         }
-        
-        .share-button {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
+
+        .sponsor-logos img {
+            height: 40px;
+        }
+
+        .bcci-logo {
+            height: 40px;
+        }
+
+        /* Download App Button (Mobile) */
+        .download-app-btn {
+            background-color: #0B8E36;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
             font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            width: 90%;
+            max-width: 400px;
+            font-size: 18px;
+            margin: 20px auto;
+            cursor: pointer;
+            text-align: center;
+            display: none; /* Hidden initially, shown via JS for mobile */
         }
-        
-        .share-button:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
+
+        /* Desktop Download Section */
+        .download-section {
+            width: 90%;
+            max-width: 700px;
+            padding: 20px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .download-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .mobile-input-container {
+            display: flex;
+            gap: 10px;
+            margin: 0 auto;
+            width: 100%;
+            align-items: center;
+        }
+
+        .mobile-input-group {
+            flex: 1;
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .country-code {
+            padding: 10px;
+            background-color: #f0f0f0;
+            color: #000;
+            border-right: 1px solid #ccc;
+        }
+
+        .mobile-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .get-link-btn {
+            background-color: #0B8E36;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .official-partner {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .official-partner .red {
+            color: #ff0000;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .download-app-btn {
+                display: block;
+            }
+            
+            .download-section {
+                display: none;
+            }
+            
+            .hero-section {
+                background-image: url('/mobail.png'); /* Mobile specific background */
+            }
         }
     </style>
 </head>
 <body>
-    <a href="#" id="whatsapp-share" class="share-button">Share on WhatsApp</a>
+    <header>
+        <div class="header-container">
+            <div class="menu-icon">☰</div>
+            <div class="logo">
+                <img src="https://cdnflags.dream11.com/d11-static-pages/images/dream11LogoWhite.webp" alt="Dream11 Logo">
+            </div>
+            <div class="language-selector">
+                English ▼
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-section">
+            <div class="sponsor-section">
+                <p>LEAD SPONSOR</p>
+                <div class="sponsor-logos">
+                    <img class="bcci-logo" src="https://www.bcci.tv/img/bcci-logo.svg" alt="BCCI Logo">
+                    <img src="https://cdnflags.dream11.com/d11-static-pages/images/dream11LogoWhite.webp" alt="Dream11 Logo">
+                </div>
+            </div>
+
+            <!-- Mobile View Button -->
+            <button class="download-app-btn">DOWNLOAD APP</button>
+
+            <!-- Desktop View Form -->
+            <div class="download-section">
+                <h3>Download official Dream11 app</h3>
+                <div class="mobile-input-container">
+                    <div class="mobile-input-group">
+                        <span class="country-code">+91</span>
+                        <input type="text" class="mobile-input" placeholder="Enter Mobile Number">
+                    </div>
+                    <button class="get-link-btn">GET APP LINK</button>
+                </div>
+                <p class="official-partner">Official <span class="red">Partner</span></p>
+            </div>
+        </div>
+    </main>
 
     <script>
-        document.getElementById('whatsapp-share').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // The URL you want to share
-            const urlToShare = "https://yourwebsite.com";
-            
-            // Optional text to include with the link
-            const textMessage = "Check out this awesome website!";
-            
-            // Create the WhatsApp sharing URL
-            const whatsappURL = `https://wa.me/?text=${encodeURIComponent(textMessage + " " + urlToShare)}`;
-            
-            // Generate a unique ID for this share attempt
-            const shareId = Date.now().toString();
-            
-            // Store information about this share in localStorage
-            try {
-                let shareHistory = JSON.parse(localStorage.getItem('whatsappShareHistory')) || {};
-                shareHistory[shareId] = {
-                    url: urlToShare,
-                    timestamp: new Date().toISOString()
-                };
-                localStorage.setItem('whatsappShareHistory', JSON.stringify(shareHistory));
-            } catch (error) {
-                console.error("Error saving share history:", error);
+        // For desktop/mobile view adjustment
+        function checkMobileView() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.download-app-btn').style.display = 'block';
+                document.querySelector('.download-section').style.display = 'none';
+            } else {
+                document.querySelector('.download-app-btn').style.display = 'none';
+                document.querySelector('.download-section').style.display = 'block';
             }
-            
-            // Open WhatsApp in a new window/tab
-            window.open(whatsappURL, '_blank');
+        }
+
+        // Run on page load and resize
+        window.addEventListener('load', checkMobileView);
+        window.addEventListener('resize', checkMobileView);
+
+        // Mobile download button click
+        document.querySelector('.download-app-btn').addEventListener('click', function() {
+            alert('Opening download options...');
+        });
+
+        // Get app link button click
+        document.querySelector('.get-link-btn').addEventListener('click', function() {
+            const mobileNumber = document.querySelector('.mobile-input').value;
+            if (mobileNumber) {
+                alert(`App link sent to +91${mobileNumber}!`);
+            } else {
+                alert('Please enter a valid mobile number.');
+            }
         });
     </script>
 </body>
