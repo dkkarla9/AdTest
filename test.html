@@ -1,177 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Enroll & Win</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #FF416C, #FFAA00);
-      color: #fff;
-      text-align: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    header {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 36px;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 28px;
-      margin: 20px 0;
-    }
-
-    p.intro-text {
-      font-size: 18px;
-      margin: 15px 0;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .steps-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .step {
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 15px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      text-align: left;
-      transition: transform 0.3s ease;
-    }
-
-    .step:hover {
-      transform: translateY(-5px);
-    }
-
-    .step h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #FF416C;
-    }
-
-    .step p {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .social-proof {
-      margin: 40px 0;
-    }
-
-    .social-proof h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .proof-item {
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      padding: 15px;
-      margin: 10px auto;
-      border-radius: 10px;
-      max-width: 600px;
-      font-style: italic;
-    }
-
-    .last-hour {
-      font-size: 18px;
-      font-weight: bold;
-      color: #FFD700;
-      margin: 20px 0;
-    }
-
-    .back-button {
-      display: inline-block;
-      padding: 10px 25px;
-      background-color: #FFD700;
-      color: #000;
-      text-decoration: none;
-      font-size: 16px;
-      border-radius: 25px;
-      margin-top: 30px;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-button:hover {
-      background-color: #FF4500;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      h1 { font-size: 28px; }
-      h2 { font-size: 24px; }
-      .step h3 { font-size: 20px; }
-      .step p { font-size: 14px; }
-      p.intro-text { font-size: 16px; }
-      .proof-item { font-size: 14px; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 24px; }
-      h2 { font-size: 20px; }
-      .step h3 { font-size: 18px; }
-      .back-button { padding: 8px 20px; font-size: 14px; }
-      .last-hour { font-size: 16px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream11 Navbar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>How to Enroll & Win</h1>
-  </header>
-
-  <main>
-    <div class="steps-container">
-      <h2>Follow These 4 Simple Steps</h2>
-      <p class="intro-text">Join thousands of participants in our exciting contest! Whether you’re here for the thrill or the rewards, we’ve made it super easy to get started. Follow the steps below and you could be our next big winner!</p>
-
-      <div class="step">
-        <h3>Step 1: Sign Up</h3>
-        <p>Create an account on our website by providing your email and basic details. It’s quick, free, and gets you ready to join the fun!</p>
-      </div>
-
-      <div class="step">
-        <h3>Step 2: Enter the Contest</h3>
-        <p>Once logged in, click the “Join Contest” button and confirm your entry. That’s it—you’re officially in the running!</p>
-      </div>
-
-      <div class="step">
-        <h3>Step 3: Complete Challenges</h3>
-        <p>Boost your chances by completing fun challenges like sharing on social media or inviting friends. The more you participate, the better your odds!</p>
-      </div>
-
-      <div class="step">
-        <h3>Step 4: Win Prizes</h3>
-        <p>Wait for the contest results. Winners are announced weekly—your prize could be next! Stay tuned to your email for updates.</p>
-      </div>
+    <nav class="navbar">
+        <div class="left-section">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <img src="https://cdnflags.dream11.com/d11-static-pages/images/dream11LogoWhite.webp" alt="Dream11 Logo">
+            </div>
+        </div>
+        <div class="language-selector">
+            <span>English</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </nav>
+    <div class="hero-container">
+        <div class="hero-content">
+            <img src="https://cdnflags.dream11.com/d11-static-pages/images/preWwcD11MainBanner2024Desktop1.webp" alt="Cricket Players" class="hero-image">
+            <div class="sponsor-section">
+                <p>LEAD SPONSOR</p>
+            </div>
+            <a href="#" class="download-btn">DOWNLOAD APP</a>
+        </div>
     </div>
-
-   
-
-    <a href="index.html" class="back-button">Back to Homepage</a>
-  </main>
+    <section class="how-it-works">
+        <div class="intro-text">
+            <p>Life matches. Create your team to win points based on all the players' performance in a live game.</p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">
+                    <span>1</span>
+                </div>
+                <div class="step-content">
+                    <h2>Select A Match</h2>
+                    <p>Choose an upcoming match that you want to play</p>
+                </div>
+                <div class="step-image">
+                    <img src="match-selection.png" alt="Match selection between MI and DC">
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">
+                    <span>2</span>
+                </div>
+                <div class="step-content">
+                    <h2>Create Team</h2>
+                    <p>Use your skills to pick the right players</p>
+                </div>
+                <div class="step-image">
+                    <img src="player-selection.png" alt="Player selection interface">
+                </div>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">
+                    <span>3</span>
+                </div>
+                <div class="step-content">
+                    <h2>Join Contests</h2>
+                    <p>Choose between different contests and compete</p>
+                </div>
+                <div class="step-image">
+                    <img src="contest-selection.png" alt="Contest with ₹25 Crore prize">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="fantasy-sports">
+        <div class="container">
+            <h2 class="section-title">Popular <span class="highlight">Fantasy Sports</span> in India</h2>
+            
+            <div class="description">
+                <p>Fantasy sports is a platform for online gaming where fantasy players create a virtual team of real sports players. Dream11 gives you plenty of options to create your fantasy sports team for the sport you would like to play and win! Here are the <a href="#" class="link">most popular fantasy sports</a> leagues to play.</p>
+            </div>
+            
+            <div class="sports-slider">
+                <button class="slider-arrow prev-arrow">&lt;</button>
+                
+                <div class="sport-card active">
+                    <div class="sport-header">
+                        <img src="cricket-icon.png" alt="Cricket ball icon" class="sport-icon">
+                        <h3>Fantasy Cricket</h3>
+                    </div>
+                    
+                    <div class="sport-content">
+                        <p>Play one of the biggest cricket leagues, the <a href="#" class="link">TATA IPL 2024</a>. Use your cricketing knowledge and join leagues like the <a href="#" class="link">Big Bash League</a>, <a href="#" class="link">Caribbean Premier League</a> and many others.</p>
+                    </div>
+                </div>
+                
+                <button class="slider-arrow next-arrow">&gt;</button>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
