@@ -18,9 +18,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, #a30000, #6b0000);
+    background: linear-gradient(to right, #5f0a0a, #220000, #220000);
     padding: 10px 15px;
-    height: 60px;
+    height: 50px;
     color: white;
     width: 100%;
     position: fixed;
@@ -75,14 +75,46 @@ body {
 }
 
 /* Hero Section */
+
+.hero-container  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.hero-container  h1 span {
+    color: #FFD700;
+}
+
+.hero-container  p {
+    font-size: 18px;
+    margin: 20px 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    text-align: center;
+
+    
+}
+
+.hero-container  p span {
+    color: #FFD700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* /// */
+
 .hero-container {
     padding-top: 60px; /* Add navbar height as padding */
     width: 100%;
-    background-color: #000;
+    background: url('/mobail.png');
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 30px;
+    position: relative;
 }
 
 .hero-content {
