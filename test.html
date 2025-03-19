@@ -3,105 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream11 Navbar</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Ultimate Prize Contest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #FF8C00, #FF69B4);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 30px 10px;
+            position: relative;
+            width: 100%;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 span {
+            color: #FFD700;
+        }
+
+        .header p {
+            font-size: 18px;
+            margin: 20px 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.5;
+        }
+
+        .header p span {
+            color: #FFD700;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .cta-button {
+            background-color: #FFD700;
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .secondary-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: #FFFFFF;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: 2px solid #FF8C00;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(255, 165, 0, 0.2);
+        }
+
+        /* Prizes Section */
+        .prizes {
+            text-align: center;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .prizes h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .prizes h2 span {
+            color: #FFD700;
+        }
+
+        .prize-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .prize-card {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .prize-card:hover {
+            transform: scale(1.05);
+        }
+
+        .prize-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .prize-card h3 {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+
+        .prize-card button {
+            background-color: #FFD700;
+            color: #000000;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .prize-card button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(255, 140, 0, 0.8);
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .prizes h2 {
+                font-size: 24px;
+            }
+
+            .prize-card {
+                width: 90%;
+            }
+
+            .cta-button {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+
+            .secondary-button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="left-section">
-            <button class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="logo">
-                <img src="https://cdnflags.dream11.com/d11-static-pages/images/dream11LogoWhite.webp" alt="Dream11 Logo">
-            </div>
-        </div>
-        <div class="language-selector">
-            <span>English</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </nav>
-    <div class="hero-container">
-        <div class="hero-content">
-            <img src="https://cdnflags.dream11.com/d11-static-pages/images/preWwcD11MainBanner2024Desktop1.webp" alt="Cricket Players" class="hero-image">
-            <div class="sponsor-section">
-                <p>LEAD SPONSOR</p>
-            </div>
-            <a href="#" class="download-btn">DOWNLOAD APP</a>
+    <div class="header">
+        <h1>Welcome to the <span>Ultimate Prize Contest!</span></h1>
+        <p>Win incredible prizes like smartphones, headphones, and more! <br> <span>Join now</span> and test your luck!</p>
+        <button class="cta-button">Join the Contest Now!</button>
+        <div class="secondary-buttons">
+            <button class="secondary-button">How It Works</button>
+            <button class="secondary-button">Last Winner</button>
         </div>
     </div>
-    <section class="how-it-works">
-        <div class="intro-text">
-            <p>Life matches. Create your team to win points based on all the players' performance in a live game.</p>
-        </div>
-        
-        <div class="steps-container">
-            <div class="step-card">
-                <div class="step-number">
-                    <span>1</span>
-                </div>
-                <div class="step-content">
-                    <h2>Select A Match</h2>
-                    <p>Choose an upcoming match that you want to play</p>
-                </div>
-                <div class="step-image">
-                    <img src="match-selection.png" alt="Match selection between MI and DC">
-                </div>
+
+    <div class="prizes">
+        <h2>Amazing <span>Rewards</span> Await!</h2>
+        <div class="prize-container">
+            <div class="prize-card">
+                <!-- Placeholder for smartphone image -->
+                <img src="https://imgs.search.brave.com/m3fWiZteBILapZgx3G2QixraPWHZ7vvqVYxsT4LkwHI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zczcu/dnp3LmNvbS9pcy9p/bWFnZS9WZXJpem9u/V2lyZWxlc3MvYXBw/bGUtaXBob25lLTE2/ZS13aGl0ZS1hbHVt/aW51bT9oZWk9MjUw/JmJnYz1mNmY2ZjY.jpeg" alt="Latest Smartphone">
+                <h3>Latest Smartphone</h3>
+                <button>Win Now!</button>
             </div>
-            
-            <div class="step-card">
-                <div class="step-number">
-                    <span>2</span>
-                </div>
-                <div class="step-content">
-                    <h2>Create Team</h2>
-                    <p>Use your skills to pick the right players</p>
-                </div>
-                <div class="step-image">
-                    <img src="player-selection.png" alt="Player selection interface">
-                </div>
-            </div>
-            
-            <div class="step-card">
-                <div class="step-number">
-                    <span>3</span>
-                </div>
-                <div class="step-content">
-                    <h2>Join Contests</h2>
-                    <p>Choose between different contests and compete</p>
-                </div>
-                <div class="step-image">
-                    <img src="contest-selection.png" alt="Contest with ₹25 Crore prize">
-                </div>
+            <div class="prize-card">
+                <!-- Placeholder for headphones image -->
+                <img src="https://imgs.search.brave.com/m3fWiZteBILapZgx3G2QixraPWHZ7vvqVYxsT4LkwHI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zczcu/dnp3LmNvbS9pcy9p/bWFnZS9WZXJpem9u/V2lyZWxlc3MvYXBw/bGUtaXBob25lLTE2/ZS13aGl0ZS1hbHVt/aW51bT9oZWk9MjUw/JmJnYz1mNmY2ZjY.jpeg" alt="Premium Headphones">
+                <h3>Premium Headphones</h3>
+                <button>Win Now!</button>
             </div>
         </div>
-    </section>
-    <section class="fantasy-sports">
-        <div class="container">
-            <h2 class="section-title">Popular <span class="highlight">Fantasy Sports</span> in India</h2>
-            
-            <div class="description">
-                <p>Fantasy sports is a platform for online gaming where fantasy players create a virtual team of real sports players. Dream11 gives you plenty of options to create your fantasy sports team for the sport you would like to play and win! Here are the <a href="#" class="link">most popular fantasy sports</a> leagues to play.</p>
-            </div>
-            
-            <div class="sports-slider">
-                <button class="slider-arrow prev-arrow">&lt;</button>
-                
-                <div class="sport-card active">
-                    <div class="sport-header">
-                        <img src="cricket-icon.png" alt="Cricket ball icon" class="sport-icon">
-                        <h3>Fantasy Cricket</h3>
-                    </div>
-                    
-                    <div class="sport-content">
-                        <p>Play one of the biggest cricket leagues, the <a href="#" class="link">TATA IPL 2024</a>. Use your cricketing knowledge and join leagues like the <a href="#" class="link">Big Bash League</a>, <a href="#" class="link">Caribbean Premier League</a> and many others.</p>
-                    </div>
-                </div>
-                
-                <button class="slider-arrow next-arrow">&gt;</button>
-            </div>
-        </div>
-    </section>
+    </div>
+
+    <div class="footer">
+        <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+    </div>
+
+    <!-- Optional: Add confetti animation here using a library like Particles.js -->
+    <!-- Optional: Add a progress bar here using JavaScript -->
 </body>
-</html>
+</html>         
